@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Orgil Buyantogtokh — Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    a { color: #60a5fa; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .hero .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #2d3a4a;
+      border: 3px solid #3b82f6;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      color: #60a5fa;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 6px;
+    }
+
+    .hero .tagline {
+      font-size: 16px;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+
+    .hero .links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 8px 16px;
+      border-radius: 8px;
+      color: #cbd5e1;
+      font-size: 14px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .hero .links a:hover {
+      border-color: #3b82f6;
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px 10px;
+      text-align: center;
+    }
+
+    .about p {
+      font-size: 15px;
+      color: #94a3b8;
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── SKILLS BAR ── */
+    .skills-bar {
+      max-width: 800px;
+      margin: 24px auto 0;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #94a3b8;
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* ── PROJECTS ── */
+    .projects {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    .projects h2 {
+      font-size: 22px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 28px;
+      color: #f8fafc;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      border-color: #3b82f6;
+      transform: translateY(-2px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+
+    .card .badge {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-left: 8px;
+    }
+
+    .badge-capstone {
+      background: #7c3aed22;
+      color: #a78bfa;
+      border: 1px solid #7c3aed44;
+    }
+
+    .badge-app {
+      background: #3b82f622;
+      color: #60a5fa;
+      border: 1px solid #3b82f644;
+    }
+
+    .badge-cli {
+      background: #10b98122;
+      color: #34d399;
+      border: 1px solid #10b98144;
+    }
+
+    .badge-web {
+      background: #f59e0b22;
+      color: #fbbf24;
+      border: 1px solid #f59e0b44;
+    }
+
+    .badge-ai {
+      background: #ec489922;
+      color: #f472b6;
+      border: 1px solid #ec489944;
+    }
+
+    .card p {
+      font-size: 13.5px;
+      color: #94a3b8;
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    .card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .card .tag {
+      background: #0f172a;
+      color: #64748b;
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .card .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      color: #60a5fa;
+      font-weight: 600;
+    }
+
+    .card .card-link:hover {
+      color: #93bbfd;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 1px solid #1e293b;
+      color: #475569;
+      font-size: 13px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 24px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="avatar">O</div>
+    <h1>Orgil Buyantogtokh</h1>
+    <p class="tagline">Data Science Student at AUM &bull; ML &bull; Dashboards &bull; AI Agents</p>
+    <div class="links">
+      <a href="https://github.com/pkawai" target="_blank">&#9671; GitHub</a>
+      <a href="mailto:b.orgil@aum.edu.mn">&#9993; b.orgil@aum.edu.mn</a>
+      <a href="tel:+97680740010">&#9742; +976 80740010</a>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="about">
+    <p>
+      Senior Data Science student with hands-on experience building ML trading systems,
+      real-time dashboards, and AI agents. Strong foundation in statistics, machine learning,
+      and data visualization. Here are the projects I've built during my studies at the
+      American University of Mongolia.
+    </p>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="skills-bar">
+    <span class="skill-tag">Python</span>
+    <span class="skill-tag">JavaScript</span>
+    <span class="skill-tag">MySQL</span>
+    <span class="skill-tag">Pandas</span>
+    <span class="skill-tag">NumPy</span>
+    <span class="skill-tag">Scikit-learn</span>
+    <span class="skill-tag">XGBoost</span>
+    <span class="skill-tag">Streamlit</span>
+    <span class="skill-tag">Chart.js</span>
+    <span class="skill-tag">Matplotlib</span>
+    <span class="skill-tag">Tableau</span>
+    <span class="skill-tag">Power BI</span>
+    <span class="skill-tag">Git/GitHub</span>
+    <span class="skill-tag">REST APIs</span>
+    <span class="skill-tag">HTML/CSS</span>
+    <span class="skill-tag">Claude SDK</span>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="projects">
+    <h2>Projects</h2>
+    <div class="grid">
+
+      <!-- Forex Auto-Trading Bot -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Forex Auto-Trading Bot</h3>
+          <span class="badge badge-capstone">Capstone</span>
+        </div>
+        <p>
+          End-to-end ML trading system for EUR/USD using 17,000+ hourly candles.
+          Feature engineering with RSI, MACD, Bollinger Bands, and ATR. XGBoost classifier
+          for Buy/Sell/Hold signals with a Streamlit dashboard and MetaTrader 5 automated execution.
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">MetaTrader 5</span>
+          <span class="tag">Pandas</span>
+        </div>
+        <a class="card-link" href="https://github.com/pkawai/data-science-capstone" target="_blank">&#8594; View on GitHub</a>
+      </div>
+
+      <!-- Forex Watchlist -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Forex Watchlist &amp; Alerts</h3>
+          <span class="badge badge-app">App</span>
+        </div>
+        <p>
+          Real-time forex rate tracker for 30+ currency pairs including Gold and Silver.
+          Price alert notifications, live TradingView embedded charts, technical analysis signals,
+          and a dual CLI + Streamlit web interface. No API key required.
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">TradingView</span>
+          <span class="tag">Click</span>
+          <span class="tag">Plyer</span>
+        </div>
+        <a class="card-link" href="https://github.com/pkawai/forex_watchlist" target="_blank">&#8594; View on GitHub</a>
+      </div>
+
+      <!-- AI Agent Suite -->
+      <div class="card">
+        <div class="card-header">
+          <h3>AI Agent Suite</h3>
+          <span class="badge badge-ai">AI</span>
+        </div>
+        <p>
+          Three specialized AI agents built with the Claude Code SDK: a class helper for academic tasks,
+          a research agent that searches the web and writes structured reports, and a bot maker that
+          generates complete trading or Telegram bot projects on demand.
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Claude SDK</span>
+          <span class="tag">AI Agents</span>
+        </div>
+      </div>
+
+      <!-- Task Manager -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Task Manager CLI</h3>
+          <span class="badge badge-cli">CLI</span>
+        </div>
+        <p>
+          Command-line task manager with priority levels, due dates, status filtering,
+          search, and persistent JSON storage. Built with Python and Click framework.
+          Includes a full test suite using pytest. 4 PRs merged via proper Git workflow.
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Click</span>
+          <span class="tag">pytest</span>
+          <span class="tag">JSON</span>
+        </div>
+        <a class="card-link" href="https://github.com/pkawai/task-manager" target="_blank">&#8594; View on GitHub</a>
+      </div>
+
+      <!-- Expense Tracker -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Expense Tracker</h3>
+          <span class="badge badge-web">Web</span>
+        </div>
+        <p>
+          Single-page MNT expense tracking app with weekly income comparison,
+          8 spending categories, pie and bar charts, day-by-day breakdown,
+          spending warnings, dark mode, and CSV export. All data persists in localStorage.
+        </p>
+        <div class="tags">
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Chart.js</span>
+        </div>
+      </div>
+
+      <!-- FACEIT Stats Tracker -->
+      <div class="card">
+        <div class="card-header">
+          <h3>FACEIT CS2 Stats Tracker</h3>
+          <span class="badge badge-web">Web</span>
+        </div>
+        <p>
+          Browser-based tool for CS2 competitive match statistics via the FACEIT Data API.
+          Displays match history, K/D ratio, win rate, headshot %, ELO progression chart,
+          K/D trend line, and map breakdown with interactive Chart.js visualizations.
+        </p>
+        <div class="tags">
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Chart.js</span>
+          <span class="tag">FACEIT API</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    &copy; 2026 Orgil Buyantogtokh &bull; American University of Mongolia
+  </div>
+
+</body>
+</html>
